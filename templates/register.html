@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <h1><p>Register your account</p></h1>
+    <form action="/register" method="post" name="frm">
+        <div class="row">
+            <div class="form-group col-sm-12"> 
+                Display Name: <input autocomplete="off" autofocus class="form-control" name="displayname" placeholder="Display Name" type="text" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-12"> 
+                Username: <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-12">
+                Password: <input class="form-control" name="password" placeholder="Password" type="password" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-12">
+                Re-enter Password: <input class="form-control" name="confirmation" placeholder="Confirm Password" type="password" required>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" name="submit">Register</button>
+    </form>
+
+    <!-- <script>
+        // Perform submission validations
+        document.frm.submit.onclick = function(){
+            // Validate username is not empty
+            if(document.frm.username.value === "")
+            {
+                alert("Please enter a value for username");
+                return false;
+            }
+            // Validate password is not empty
+            if(document.frm.password.value === "")
+            {
+                alert("Please make a password");
+                return false;
+            }
+            // Validate confirmation is not empty
+            if(document.frm.confirmation.value === "")
+            {
+                alert("Please confirm your password");
+                return false;
+            }
+            // Validate username is available
+            $.getJSON("/check", {
+                username: $('input[name="username"]').val()
+            }, function(data){
+                if(data.availability==="false")
+                {
+                    alert("Username is already taken");
+                    return false;
+                };
+            });
+
+            // Check if passwords match
+            if(document.frm.password.value != document.frm.confirmation.value)
+            {
+                alert("Passwords do not match");
+                return false;
+            }
+            return true;
+        };
+    </script> -->
+{% endblock %}
